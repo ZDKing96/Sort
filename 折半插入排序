@@ -1,0 +1,40 @@
+#include<stdio.h>
+void BinSort(int r[],int n){
+	int i,j；
+  int low,high,mid;
+	for (i=1;i<=n;i++){
+		r[0]=r[i];
+		low=1;
+		high=i-1;
+		while (low<=high){
+			mid=(low+high)/2;
+			if(r[0]<r[mid]){
+				high=mid-1;
+			}
+			else{
+				low=mid+1;
+			}             //折半比较，得到最后该插入的位置为high+1
+		}
+		for (j=i-1;j>=high+1;j--){
+			r[j+1]=r[j];  //high+1之后的值都后移
+		}
+	r[high+1]=r[0];	  //插入到high+1处
+	}
+} 
+
+int main()
+{
+    int a[11],i;    
+    printf("请输入10个数据：\n");
+    for (i =1;i<=10;i++)
+        scanf("%d",&a[i]);    
+    printf("原始顺序：\n");
+    for(i=1;i<11;i++)
+        printf("%5d",a[i]);    
+    BinSort(a,10);    
+    printf("\n 插入数据排序后顺序：\n");
+    for(i=1;i<11;i++)
+        printf("%5d",a[i]); 
+    printf("\n");
+    return 0;
+}
