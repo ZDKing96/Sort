@@ -23,7 +23,7 @@ int main()
     printf("原始顺序：\n");
     for(i=1;i<11;i++)
         printf("%5d",a[i]);     
-    insort(a,10);               
+    InsertSort(a,10);               
     printf("\n 插入数据排序后顺序：\n");
     for(i=1;i<11;i++)
         printf("%5d",a[i]);     
