@@ -1,0 +1,14 @@
+int ShellSort(int r[],int n){
+	int d,i,j;
+	for(d=n/2;d>=1;d=d/2){		//d表示希尔排序的间隔，由n/2，依次减半，直到d=1 
+		for (i=d+1;i<=n;i++){
+			r[0]=r[i];			//设置哨兵 
+			j=i-d;
+			while((j>0)&&(r[0]<r[j])){
+				r[j+d]=r[j];
+				j=j-d;
+			}					//比较i，与i-d位置上的值的大小 
+			r[j+d]=r[0];		//在确定的位置插入r[i] 
+		}
+	}
+}
