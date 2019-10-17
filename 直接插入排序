@@ -1,0 +1,32 @@
+#include <stdio.h>
+void InsertSort (int r[],int n)
+{   int i,j;
+    for(i=2;i<=n;i++)
+    {
+      r[0]=r[i];            //设置哨兵
+      j=i-1;                //确定r[i]的前一个位置作为起始位置，开始比较
+      while(r[0]<r[j])
+        {
+            r[j+1]=r[j];    //数据右移
+            j--;            //移向左边一个未比较的数；一直循环直到找到比哨兵更小的值
+        }
+      r[j+1]=r[0];
+    }
+}
+
+int main()
+{
+    int a[11],i;                
+    printf("请输入10个数据：\n");
+    for (i =1;i<=10;i++)
+        scanf("%d",&a[i]);      
+    printf("原始顺序：\n");
+    for(i=1;i<11;i++)
+        printf("%5d",a[i]);     
+    insort(a,10);               
+    printf("\n 插入数据排序后顺序：\n");
+    for(i=1;i<11;i++)
+        printf("%5d",a[i]);     
+    printf("\n");
+    return 0;
+}
