@@ -1,12 +1,9 @@
 int BubbleSort(int r[],int n){
 	int i,j,temp;
-	for (i=1;i<=n;i++)        //进行n趟
-  {				         
-		for(j=1;j<n+1-i;j++)
-    {		                
-			if(r[j]>r[j+1])       //相邻之间比较，进行一趟冒泡，将数值大的向后冒泡 
-      {
-				temp=r[j];
+	for (i=1;i<=n;i++){       		//进行n趟				         
+		for(j=1;j<n+1-i;j++){		                
+			if(r[j]>r[j+1]){      	//相邻之间比较，进行一趟冒泡，将数值大的向后冒泡 
+   				temp=r[j];
 				r[j]=r[j+1];
 				r[j+1]=temp;	
 			}
