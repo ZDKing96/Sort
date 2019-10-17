@@ -13,20 +13,3 @@ void InsertSort (int r[],int n)
       r[j+1]=r[0];
     }
 }
-
-int main()
-{
-    int a[11],i;                
-    printf("请输入10个数据：\n");
-    for (i =1;i<=10;i++)
-        scanf("%d",&a[i]);      
-    printf("原始顺序：\n");
-    for(i=1;i<11;i++)
-        printf("%5d",a[i]);     
-    InsertSort(a,10);               
-    printf("\n 插入数据排序后顺序：\n");
-    for(i=1;i<11;i++)
-        printf("%5d",a[i]);     
-    printf("\n");
-    return 0;
-}
