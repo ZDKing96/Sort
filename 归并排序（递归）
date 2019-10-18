@@ -1,0 +1,32 @@
+void MergeSort(int r[],int low,int high){
+	int mid;
+	if(low<high){
+		mid=(low+high)/2;
+		MergeSort(r,low,mid);		//递归调用，归并前半部分 
+		MergeSort(r,mid+1,high);	//归并后半部分 
+		Merge(r,low,mid,high);		//已经排序的子序列进行合并 
+	}
+}
+
+void Merge(int r[],int low,int mid,int high){
+	int i,j,k;
+	int r1[high+1];		               //给定一个辅助数组 
+	r1[0]=0;
+	for(i=low;i<=high;i++){
+		r1[i]=r[i];
+	}					//将r[]中的值复制到r1[]中 
+	for(i=low,j=mid+1,k=i;i<=mid&&j<=high;){	//前半部分由low开始，后半部分由mid+1开始，比较两者直到至少有一方比较完了 
+		if(r1[i]<r1[j]){
+			r[k++]=r1[i++];
+		} 
+		else{
+			r[k++]=r1[j++];
+		}
+	} 					//分两个部分进行比较，把值小的复制到r[]中 
+	while(i<=mid){
+		r[k++]=r1[i++];
+	}					//如果r1[]前半部分还没有全部复制到r[]中，把前半部分剩下的复制到r[]中 
+	while(j<=high){
+		r[k++]=r1[j++];
+	}					//如果r1[]后半部分还没有全部复制到r[]中，把前半部分剩下的复制到r[]中 
+}
