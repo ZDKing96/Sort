@@ -1,0 +1,30 @@
+void HeapSort(int r[],int n){
+	int i,temp;
+	for(i=n/2;i>=1;i--){
+		AdjustDown(r,i,n);
+	}									//反复调整堆，建立大根堆 
+	for(i=n;i>1;i--){
+		temp=r[1];
+		r[1]=r[i];
+		r[i]=temp;						//把堆顶与最后一个元素交换 
+		AdjustDown(r,1,i-1);			//把剩下的i-1个结点整理成堆 
+	}
+}
+
+void AdjustDown(int r[],int k,int len){
+	int i=k;				  			//置i为要筛选的点
+	r[0]=r[k];							//r[0]暂存 
+	for(i=2*k;i<=len;i*=2){
+		if(i<len&&r[i]<r[i+1]){
+			i++;
+		}								// 找到值较大的下标 
+		if(r[0]>=r[i]){
+			break;						//筛选结束 
+		}
+		else{
+			r[k]=r[i];					//将a[i]调整到双亲结点上 
+			k=i;						//修改k值，继续向下筛选 	
+		}
+	}
+	r[k]=r[0];							//被筛选的结点值放入最终位置 
+}
