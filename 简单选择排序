@@ -1,0 +1,17 @@
+void SelectSort(int r[],int n){
+	int i,j;
+	int index,temp;
+	for (i=1;i<n;i++){
+		index=i;
+		for(j=i+1;j<=n;j++){
+			if(r[j]<r[index]){
+				index=j;
+			}					//从第i+1个数往后找最小的数的位置 
+		}
+		if(index!=i){
+			temp=r[i];
+			r[i]=r[index];
+			r[index]=temp;
+		}						//找到最小值的位置后，互换 
+	}
+}
