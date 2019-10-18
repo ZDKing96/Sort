@@ -1,0 +1,33 @@
+void QuickSort1(int r[],int first,int end){
+	int pivot;                        //用来记录分界点的位置
+	if(first<end){
+		pivot=Partition(r,first,end);		//以第一个数为中枢，得出第一次分界的位置 
+		QuickSort1(r,first,pivot-1);		// 左边区域进行递归 
+		QuickSort1(r,pivot+1,end);			//右边区域进行递归 
+	}
+}
+int Partition (int r[],int first,int end){
+	int i=first,j=end,temp;
+	while(i<j){
+		while(i<j&&r[i]<r[j]){
+			j--;
+		}									//从后往前找，找比r[i]更小的值 
+		if(i<j){
+			temp=r[i];
+			r[i]=r[j];
+			r[j]=temp;
+			i++;
+		}									//找到后互换位置 
+				
+		while(i<j&&r[i]<r[j]){
+			i++;
+		}									//变成从前往后找，找比r[j]更大的值 
+		if(i<j){
+			temp=r[j];
+			r[j]=r[i];
+			r[i]=temp;
+			j--;
+		}									//找到后互换位置 
+	}
+	return i;								//循环结束，返回最终找到的分界点的位置 
+} 
